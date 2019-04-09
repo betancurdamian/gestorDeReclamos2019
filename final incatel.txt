@@ -1,0 +1,105 @@
+INSERT INTO `empresa`
+(`id`, `cuit`, `direccion`, `razonSocial`, `telefono`) VALUES 
+('1','10000000','Barrio A-4','InCaTel','327699089089');
+
+INSERT INTO `tipoempleado`
+(`id`, `descripcion`) VALUES 
+('1','Administrador'),
+('2','Comercial'),
+('3','Experto'),
+('4','Supervisor');
+
+INSERT INTO `tipousuario`
+(`id`, `descripcion`, `privilegio`) VALUES 
+('1','Administrador','1'),
+('2','Cliente','2'),
+('3','Empleado Comercial','3'),
+('4','Empleado Experto','4'),
+('5','Empleado Supervisor','5');
+
+INSERT INTO `empleado`
+(`id`, `apellido`, `dni`, `nombre`, `id_empresa`, `id_tipoEmpleado`) VALUES 
+('1','gonzalez','35000000','daniel','1','3'),
+('2','renato','40000000','ezequiel','1','3'),
+('3','venialgo','40000000','juana','1','4'),
+('4','gonzalez','30000000','sulma','1','2'),
+('5','frankowski','30000000','recalde','1','3'),
+('6','pereira','30000000','soledad','1','3'),
+('7','roman','35000000','marcos','1','1');
+
+INSERT INTO `usuario`
+(`id`, `nickname`, `password`, `unEmpleado_id`, `unTipoUsuario_id`) VALUES
+('1','admin','admin','7','1'),
+('2', 'juana','123','3','5'),
+('3', 'renato','123','2','4'),
+('4', 'sulma','123','4','3'),
+('5', 'pereira','123','6','4'),
+('6', 'recalde','123','5','4'),
+('7', 'daniel','123','1','4');
+
+INSERT INTO `cliente`
+(`id`, `apellido`, `correoElectronico`, `direccion`, `dni`, `nombre`, `nroCliente`, `telefono`, `id_empresa`) VALUES 
+('1','venialgo','juanatvenialgo@gmail.com','barrio a-4','40415194','juana','001','3765263457','1'),
+('2','frankowski','sulmamar@gmail.com','barrio iprodha','30415194','sulma','002','3764263457','1'),
+('3','cantero','sabrinacantero@gmail.com','barrio garupa','39273194','sabrina','003','3765634457','1'),
+('4','valdez','camilavaldez@gmail.com','barrio a-3.2','34415194','camila','004','3764233457','1'),
+('5','cantero','canteromarina@gmail.com','barrio garupa','37643516','marina','005','3764289457','1'),
+('6','ribeiro','ribeiromario@gmail.com','barrio yohaza','33643513','mario','006','3764284552','1'),
+('7','cristiano','cristianojavier@gmail.com','barrio privado','32643512','javier','007','3764256457','1'),
+('8','chavez','chavezoscar@gmail.com','barrio garupa','35643515','oscar','008','3764289237','1'),
+('9','montecarlo','montecarloramon@gmail.com','barrio a3-2','43643515','ramon','009','3764221457','1'),
+('10','roque','roqueramirez@gmail.com','barrio los patitos','38643515','ramirez','010','3764267457','1'),
+('11','villalba','villalbapedro@gmail.com','barrio bicentenario','39643515','pedro','011','3764679457','1'),
+('12','silveria','silveiraester@gmail.com','barrio cocomarola','41643515','ester','012','3764287857','1');
+
+INSERT INTO `servicio`
+(`id`, `descripcion`, `id_empresa`) VALUES 
+('1','cable','1'),
+('2','internet','1'),
+('3','telefonia','1');
+
+INSERT INTO `tipodeurgencia`
+(`id`, `descripcion`) VALUES 
+('1','critico'),
+('2','urgente');
+
+INSERT INTO `estadoreclamo`
+(`id`, `descripcion`) VALUES 
+('1','Alta'),
+('2','En curso'),
+('3','Finalizado');
+
+INSERT INTO `tipodereclamo`
+(`id`, `descripcion`, `servicio_id`) VALUES 
+('1','Cambio de producto','1'),
+('2','Cambio de producto','2'),
+('3','Cambio de producto','3'),
+('4','Reparación del producto/servicio técnico','1'),
+('5','Reparación del producto/servicio técnico','2'),
+('6','Reparación del producto/servicio técnico','3'),
+('7','Anulación del contrato','1'),
+('8','Anulación del contrato','2'),
+('9','Anulación del contrato','3'),
+('10','Problema de facturacion en el servicio de internet','2'),
+('11','Problema de facturacion en el servicio de telefonia','3'),
+('12','Problema de facturacion en el servicio de cable','1'),
+('13','Falta de servicio de internet','2'),
+('14','Falta de servicio de cable','1'),
+('15','Falta de servicio de telefonia','3');
+
+INSERT INTO `estadolineadereclamo`
+(`id`, `descripcion`) VALUES 
+('1','Empleado experto asignado'),
+('2','Reasignacion de expleado experto'),
+('3','Trabajo en curso'),
+('4','Trabajo en finalizado');
+
+INSERT INTO `reclamo` 
+(`id`, `unaDescripcionInicial`, `id_servicio`, `id_cliente`, `id_empleadoComercial`, `id_empleadoExperto`, `id_estadoReclamo`, `id_tipoDeReclamo`, `id_tipoDeUrgencia`) VALUES 
+('1', 'hsdkhfjs', '2', '8', '1', '4', '1', '11', '2');
+
+INSERT INTO `lineadereclamo` 
+(`id`, `motivo`, `id_reclamo`, `id_empleadoExperto`, `id_estadoLineaDeReclamo`) VALUES 
+('1', 'asignar empleado a reclamo', '1', '1', '1'), 
+('2', 'asignar empleado experto a reclamo', '1', '5', '1');
+
